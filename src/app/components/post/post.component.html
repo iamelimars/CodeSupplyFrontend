@@ -1,0 +1,7 @@
+
+<div class="container">
+    <img class="col-xs-12" src="{{post?.image_url}}" alt="">
+    <h2 class="col-xs-12 text-center">{{ post?.title | uppercase }}</h2>
+    <h5 class="col-xs-12 text-center">By: {{ user?.name | uppercase }}</h5>
+    <div class="text-center col-xs-12" innerHTML="{{ post?.body }}"></div>
+</div>

@@ -1,0 +1,22 @@
+  
+<div class="container">
+    <div *ngFor="let category of cat_title">
+      <h1 class="col-xs-12 text-center">{{category.title}} </h1>
+    </div>
+      <h1></h1>
+      <div *ngFor="let post of posts">
+          <div class="col-md-3 col-sm-6 post-container">
+                  <md-card class="card text-center">
+                      <img md-card-image src="{{ post.image_url }}">
+                      <md-card-content>
+                          <a routerLink="/post/{{post.id}}"><h4>{{post.title | uppercase}}</h4></a>
+                      </md-card-content>
+                      <md-card-actions>
+                          <small>{{post.created_at}} </small>
+                      </md-card-actions>
+                  </md-card>
+          </div>
+        <div *ngIf="post.id % 4 === 0" class="clearfix"></div>
+
+      </div>
+</div>

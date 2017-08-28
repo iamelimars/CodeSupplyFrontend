@@ -1,0 +1,12 @@
+<div class="container">
+  <div *ngFor="let post of posts">
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <a href=""><h5>{{ post.title }}</h5></a>
+            {{post.body | slice:0:100}}
+            
+          </div>
+        </div>
+    
+  </div>
+</div>

@@ -1,0 +1,523 @@
+
+<div class="container home-content">
+    <div id="featured" class="row">
+        <div class="main-featured col-md-12">
+            <h3 class="col-xs-12 text-center">Main Featured</h3>
+        </div>
+        <div class="featured col-md-4">
+            <div>
+                <h4 class="col-xs-12 text-center">Featured</h4>
+            </div>
+        </div>
+        <div class="featured col-md-4">
+            <div>
+                <h4 class="col-xs-12 text-center">Featured</h4>
+            </div>
+        </div>
+        <div class="featured col-md-4">
+            <div>
+                <h4 class="col-xs-12 text-center">Featured</h4>
+            </div>
+        </div>
+    </div>
+
+
+    <md-tab-group md-center-tabs="true">
+        <span class="fill-remaining-space"></span>
+        <md-tab (change)="valueChanged" label="ALL">
+                <div *ngFor="let post of posts" >
+                    
+                    <div class="col-md-3 col-sm-6 post-container">
+                            <h4 class="text-center">
+                                <md-card class="example-card">
+                                    <img md-card-image src="{{ post.image_url }}">
+                                    <md-card-content>
+                                        <a href=""><h4>{{post.title | uppercase}}</h4></a>
+                                    </md-card-content>
+                                    <md-card-actions>
+                                        <small>{{post.created_at}} </small>
+                                    </md-card-actions>
+                                </md-card>
+                            </h4>
+                        </div>
+                    <div *ngIf="post.id % 4 === 0" class="clearfix"></div>
+                </div>
+                
+            <!-- <div class="col-md-3 col-sm-6 post-container">
+                    <h4 class="text-center">
+                        <md-card class="example-card">
+                            <img md-card-image src="http://via.placeholder.com/300x300">
+                            <md-card-content>
+                                <a href=""><h4>Title</h4></a>
+                            </md-card-content>
+                            <md-card-actions>
+                                <small>04 August 2017</small>
+                            </md-card-actions>
+                        </md-card>
+                    </h4>
+                </div>
+                <div class="col-md-3 col-sm-6 post-container">
+                    <h4 class="text-center">
+                        <md-card class="example-card">
+    
+                            <img md-card-image src="http://via.placeholder.com/300x300">
+                            <md-card-content>
+                                <a href=""><h4>Title</h4></a>
+                            </md-card-content>
+                            <md-card-actions>
+                                <small>04 August 2017</small>
+                            </md-card-actions>
+                        </md-card>
+                    </h4>
+                </div>
+                <div class="col-md-3 col-sm-6 post-container">
+                    <h4 class="text-center">
+                        <md-card class="example-card">         
+                            <img md-card-image src="http://via.placeholder.com/300x300">
+                            <md-card-content>
+                                <a href=""><h4>Title</h4></a>
+                            </md-card-content>
+                            <md-card-actions>
+                                <small>04 August 2017</small>
+                            </md-card-actions>
+                        </md-card>
+                    </h4>
+                </div>
+                <div class="col-md-3 col-sm-6 post-container">
+                    <h4 class="text-center">
+                        <md-card class="example-card">
+                            <img md-card-image src="http://via.placeholder.com/300x300">
+                            <md-card-content>
+                                <a href=""><h4>Title</h4></a>
+                            </md-card-content>
+                            <md-card-actions>
+                                <small>04 August 2017</small>
+                            </md-card-actions>
+                        </md-card>
+                    </h4>
+                </div>
+
+                <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">
+        
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">         
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div> -->
+
+                <md-paginator [length]="length"
+                    [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOptions"
+                    (page)="onAllPaginateChange($event)">
+                </md-paginator>
+
+                
+        </md-tab>
+        <md-tab (change)="valueChanged" label="FRONTEND">
+            <div class="col-md-3 col-sm-6 post-container">
+                <h4 class="text-center">
+                    <md-card class="example-card">
+                        <img md-card-image src="http://via.placeholder.com/300x300">
+                        <md-card-content>
+                            <a href=""><h4>Title</h4></a>
+                        </md-card-content>
+                        <md-card-actions>
+                            <small>04 August 2017</small>
+                        </md-card-actions>
+                    </md-card>
+                </h4>
+            </div>
+            <div class="col-md-3 col-sm-6 post-container">
+                <h4 class="text-center">
+                    <md-card class="example-card">
+
+                        <img md-card-image src="http://via.placeholder.com/300x300">
+                        <md-card-content>
+                            <a href=""><h4>Title</h4></a>
+                        </md-card-content>
+                        <md-card-actions>
+                            <small>04 August 2017</small>
+                        </md-card-actions>
+                    </md-card>
+                </h4>
+            </div>
+            <div class="col-md-3 col-sm-6 post-container">
+                <h4 class="text-center">
+                    <md-card class="example-card">         
+                        <img md-card-image src="http://via.placeholder.com/300x300">
+                        <md-card-content>
+                            <a href=""><h4>Title</h4></a>
+                        </md-card-content>
+                        <md-card-actions>
+                            <small>04 August 2017</small>
+                        </md-card-actions>
+                    </md-card>
+                </h4>
+            </div>
+            <div class="col-md-3 col-sm-6 post-container">
+                <h4 class="text-center">
+                    <md-card class="example-card">
+                        <img md-card-image src="http://via.placeholder.com/300x300">
+                        <md-card-content>
+                            <a href=""><h4>Title</h4></a>
+                        </md-card-content>
+                        <md-card-actions>
+                            <small>04 August 2017</small>
+                        </md-card-actions>
+                    </md-card>
+                </h4>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 post-container">
+                    <h4 class="text-center">
+                        <md-card class="example-card">
+                            <img md-card-image src="http://via.placeholder.com/300x300">
+                            <md-card-content>
+                                <a href=""><h4>Title</h4></a>
+                            </md-card-content>
+                            <md-card-actions>
+                                <small>04 August 2017</small>
+                            </md-card-actions>
+                        </md-card>
+                    </h4>
+                </div>
+                <div class="col-md-3 col-sm-6 post-container">
+                    <h4 class="text-center">
+                        <md-card class="example-card">
+    
+                            <img md-card-image src="http://via.placeholder.com/300x300">
+                            <md-card-content>
+                                <a href=""><h4>Title</h4></a>
+                            </md-card-content>
+                            <md-card-actions>
+                                <small>04 August 2017</small>
+                            </md-card-actions>
+                        </md-card>
+                    </h4>
+                </div>
+                <div class="col-md-3 col-sm-6 post-container">
+                    <h4 class="text-center">
+                        <md-card class="example-card">         
+                            <img md-card-image src="http://via.placeholder.com/300x300">
+                            <md-card-content>
+                                <a href=""><h4>Title</h4></a>
+                            </md-card-content>
+                            <md-card-actions>
+                                <small>04 August 2017</small>
+                            </md-card-actions>
+                        </md-card>
+                    </h4>
+                </div>
+                <div class="col-md-3 col-sm-6 post-container">
+                    <h4 class="text-center">
+                        <md-card class="example-card">
+                            <img md-card-image src="http://via.placeholder.com/300x300">
+                            <md-card-content>
+                                <a href=""><h4>Title</h4></a>
+                            </md-card-content>
+                            <md-card-actions>
+                                <small>04 August 2017</small>
+                            </md-card-actions>
+                        </md-card>
+                    </h4>
+                </div>
+                <md-paginator [length]="length"
+                    [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOptions"
+                    (page)="onFrontendPaginateChange($event)">
+                </md-paginator>
+        </md-tab>
+        <md-tab (change)="valueChanged" label="BACKEND">
+                <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">
+        
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">         
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+    
+                    <div class="col-md-3 col-sm-6 post-container">
+                            <h4 class="text-center">
+                                <md-card class="example-card">
+                                    <img md-card-image src="http://via.placeholder.com/300x300">
+                                    <md-card-content>
+                                        <a href=""><h4>Title</h4></a>
+                                    </md-card-content>
+                                    <md-card-actions>
+                                        <small>04 August 2017</small>
+                                    </md-card-actions>
+                                </md-card>
+                            </h4>
+                        </div>
+                        <div class="col-md-3 col-sm-6 post-container">
+                            <h4 class="text-center">
+                                <md-card class="example-card">
+            
+                                    <img md-card-image src="http://via.placeholder.com/300x300">
+                                    <md-card-content>
+                                        <a href=""><h4>Title</h4></a>
+                                    </md-card-content>
+                                    <md-card-actions>
+                                        <small>04 August 2017</small>
+                                    </md-card-actions>
+                                </md-card>
+                            </h4>
+                        </div>
+                        <div class="col-md-3 col-sm-6 post-container">
+                            <h4 class="text-center">
+                                <md-card class="example-card">         
+                                    <img md-card-image src="http://via.placeholder.com/300x300">
+                                    <md-card-content>
+                                        <a href=""><h4>Title</h4></a>
+                                    </md-card-content>
+                                    <md-card-actions>
+                                        <small>04 August 2017</small>
+                                    </md-card-actions>
+                                </md-card>
+                            </h4>
+                        </div>
+                        <div class="col-md-3 col-sm-6 post-container">
+                            <h4 class="text-center">
+                                <md-card class="example-card">
+                                    <img md-card-image src="http://via.placeholder.com/300x300">
+                                    <md-card-content>
+                                        <a href=""><h4>Title</h4></a>
+                                    </md-card-content>
+                                    <md-card-actions>
+                                        <small>04 August 2017</small>
+                                    </md-card-actions>
+                                </md-card>
+                            </h4>
+                        </div>
+    
+                    <md-paginator [length]="length"
+                        [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="onBackendPaginateChange($event)">
+                    </md-paginator>
+        </md-tab>
+        <md-tab label="FULLSTACK">
+                <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">
+        
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">         
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 post-container">
+                        <h4 class="text-center">
+                            <md-card class="example-card">
+                                <img md-card-image src="http://via.placeholder.com/300x300">
+                                <md-card-content>
+                                    <a href=""><h4>Title</h4></a>
+                                </md-card-content>
+                                <md-card-actions>
+                                    <small>04 August 2017</small>
+                                </md-card-actions>
+                            </md-card>
+                        </h4>
+                    </div>
+    
+                    <div class="col-md-3 col-sm-6 post-container">
+                            <h4 class="text-center">
+                                <md-card class="example-card">
+                                    <img md-card-image src="http://via.placeholder.com/300x300">
+                                    <md-card-content>
+                                        <a href=""><h4>Title</h4></a>
+                                    </md-card-content>
+                                    <md-card-actions>
+                                        <small>04 August 2017</small>
+                                    </md-card-actions>
+                                </md-card>
+                            </h4>
+                        </div>
+                        <div class="col-md-3 col-sm-6 post-container">
+                            <h4 class="text-center">
+                                <md-card class="example-card">
+            
+                                    <img md-card-image src="http://via.placeholder.com/300x300">
+                                    <md-card-content>
+                                        <a href=""><h4>Title</h4></a>
+                                    </md-card-content>
+                                    <md-card-actions>
+                                        <small>04 August 2017</small>
+                                    </md-card-actions>
+                                </md-card>
+                            </h4>
+                        </div>
+                        <div class="col-md-3 col-sm-6 post-container">
+                            <h4 class="text-center">
+                                <md-card class="example-card">         
+                                    <img md-card-image src="http://via.placeholder.com/300x300">
+                                    <md-card-content>
+                                        <a href=""><h4>Title</h4></a>
+                                    </md-card-content>
+                                    <md-card-actions>
+                                        <small>04 August 2017</small>
+                                    </md-card-actions>
+                                </md-card>
+                            </h4>
+                        </div>
+                        <div class="col-md-3 col-sm-6 post-container">
+                            <h4 class="text-center">
+                                <md-card class="example-card">
+                                    <img md-card-image src="http://via.placeholder.com/300x300">
+                                    <md-card-content>
+                                        <a href=""><h4>Title</h4></a>
+                                    </md-card-content>
+                                    <md-card-actions>
+                                        <small>04 August 2017</small>
+                                    </md-card-actions>
+                                </md-card>
+                            </h4>
+                        </div>
+
+                        <h1>Posts</h1>
+                        <div *ngFor="let post of posts">
+                            <h4> {{post.title}} </h4>
+                        </div>
+
+
+    
+                    <md-paginator [length]="length"
+                        [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="onFullstackPaginateChange($event)">
+                    </md-paginator>
+        </md-tab>
+        <span class="fill-remaining-space"></span>
+    </md-tab-group>
+
+
+   
+    
+
+
+
+</div>

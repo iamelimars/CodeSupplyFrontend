@@ -1,0 +1,37 @@
+.home-content {
+    margin-top: 100px;
+}
+
+::ng-deep .mat-tab-labels{
+    justify-content: center; /* align items in Main Axis */
+}
+/* Featured */
+.main-featured {
+    height: 200px;
+    border: 0.5px solid grey;
+    margin-bottom: 22px;
+    
+}
+.main-featured>h3 {
+    margin-top: 80px;
+}
+.post-container {
+    min-height: 300px;
+}
+.featured {
+    height: 200px;
+    margin-top: 22px;
+}
+.featured>div {
+    border: 0.5px solid grey;
+    height: 100%;
+}
+.featured>div>h4 {
+    margin-top: 80px;
+}
+
+/* Categories */
+#categories>div {
+    margin-top: 42px;
+    margin-bottom: 42px;
+}
